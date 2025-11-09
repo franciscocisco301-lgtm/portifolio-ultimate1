@@ -1,37 +1,90 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>fjfotografias | Portfólio</title>
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-  <script src="firebase.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio Lineup — Fotografia de Beleza</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>?? fjfotografias</h1>
-    <nav>
-      <a href="index.html">Galeria</a>
-      <a href="upload.html">Upload</a>
-      <a href="https://instagram.com/fjfotografias" target="_blank">Instagram</a>
-      <button id="logoutBtn">Sair</button>
-    </nav>
-  </header>
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Studio Lineup</h1>
+      <p>Fotografia de beleza, maquiagem e skincare — capturando o brilho dos seus produtos.</p>
+      <a href="#portfolio" class="btn">Ver Portfólio</a>
+    </div>
+  </section>
 
-  <main>
-    <section id="galeria" class="galeria"></section>
-  </main>
+  <!-- PORTFÓLIO -->
+  <section id="portfolio" class="section">
+    <h2>Portfólio</h2>
+    <div class="gallery">
+      <!-- Substitua as imagens pelos seus arquivos -->
+      <img src="assets/images/portfolio/1.jpg" alt="Foto de produto 1">
+      <img src="assets/images/portfolio/2.jpg" alt="Foto de produto 2">
+      <img src="assets/images/portfolio/3.jpg" alt="Foto de produto 3">
+      <img src="assets/images/portfolio/4.jpg" alt="Foto de produto 4">
+    </div>
+  </section>
 
+  <!-- SOBRE -->
+  <section id="about" class="section beige-bg">
+    <h2>Sobre o Studio</h2>
+    <p>
+      Há 4 anos, a fotografia é parte essencial da minha rotina — começou como hobby e se tornou minha expressão de beleza.  
+      O Studio Lineup nasceu para criar imagens que valorizam produtos e marcas do universo da beleza com estética clean e lifestyle.
+    </p>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section id="services" class="section">
+    <h2>Serviços</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>?? Fotografia de Produtos</h3>
+        <p>Imagens para catálogos, e-commerce e campanhas publicitárias.</p>
+      </div>
+      <div class="service-card">
+        <h3>? Conteúdo Lifestyle</h3>
+        <p>Fotos criativas e naturais para redes sociais e branding.</p>
+      </div>
+      <div class="service-card">
+        <h3>?? Edição Profissional</h3>
+        <p>Tratamento de imagem e correção de cor para realçar texturas e tons.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contact" class="section beige-bg">
+    <h2>Contato</h2>
+    <p>Vamos criar algo bonito juntos?</p>
+    <form action="https://formspree.io/f/{SEU_ENDPOINT}" method="POST" class="contact-form">
+      <input type="text" name="name" placeholder="Seu nome" required>
+      <input type="email" name="email" placeholder="Seu e-mail" required>
+      <textarea name="message" placeholder="Sua mensagem" rows="5" required></textarea>
+      <button type="submit" class="btn">Enviar</button>
+    </form>
+    <div class="contact-links">
+      <a href="https://wa.me/55SEU_NUMERO" class="btn-outline" target="_blank">Fale no WhatsApp</a>
+      <a href="https://instagram.com/SEU_INSTAGRAM" target="_blank">
+        <img src="assets/icons/instagram.svg" alt="Instagram" class="icon">
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <p>© 2025 - Feito com ?? por fjfotografias</p>
+    <p>© 2025 Studio Lineup — Todos os direitos reservados.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox">
+    <img src="" alt="">
+  </div>
+
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

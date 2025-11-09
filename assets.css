@@ -1,0 +1,166 @@
+:root {
+  --gold: #C9A86A;
+  --beige: #F8F5F2;
+  --dark: #333;
+  --font-title: 'Playfair Display', serif;
+  --font-body: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--dark);
+  background-color: #fff;
+  scroll-behavior: smooth;
+}
+
+/* HERO (com efeito parallax) */
+.hero {
+  background: url('../images/hero.jpg') center/cover fixed no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+}
+.hero-content {
+  z-index: 2;
+  max-width: 600px;
+  padding: 0 20px;
+}
+.hero h1 {
+  font-family: var(--font-title);
+  font-size: 3rem;
+  color: var(--gold);
+}
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  background: var(--gold);
+  color: white;
+  padding: 10px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.btn:hover {
+  background: #b18f55;
+}
+
+/* SEÇÕES */
+.section {
+  padding: 80px 20px;
+  text-align: center;
+}
+.section h2 {
+  font-family: var(--font-title);
+  color: var(--gold);
+  margin-bottom: 30px;
+}
+.beige-bg {
+  background-color: var(--beige);
+}
+
+/* PORTFÓLIO */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  padding: 0 40px;
+}
+.gallery img {
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.gallery img:hover {
+  transform: scale(1.03);
+}
+
+/* LIGHTBOX */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+}
+.lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 8px;
+}
+
+/* SERVIÇOS */
+.services-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+.service-card {
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  width: 300px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+}
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+/* CONTATO */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+  margin: 30px auto;
+}
+.contact-form input, .contact-form textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-family: var(--font-body);
+}
+.btn-outline {
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 8px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.btn-outline:hover {
+  background: var(--gold);
+  color: white;
+}
+
+/* FOOTER */
+footer {
+  background: #111;
+  color: #ccc;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.2rem; }
+  .services-grid { flex-direction: column; align-items: center; }
+}
