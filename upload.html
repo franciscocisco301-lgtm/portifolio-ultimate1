@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upload | fjfotografias</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="firebase.js"></script>
+</head>
+<body>
+  <main class="upload-container">
+    <h2>Enviar Foto</h2>
+    <input type="file" id="foto" accept="image/*" />
+    <button id="uploadBtn">Enviar</button>
+    <p id="msg"></p>
+    <a href="index.html">? Voltar</a>
+  </main>
+
+  <script>
+    const uploadBtn = document.getElementById("uploadBtn");
+    const msg = document.getElementById("msg");
+
+    firebase.auth().onAuthStateChanged(user => {
+      if (!user) window.location.href = "login.html";
+    });
+
+    uploadBtn.addEventListener("click", async () => {
+      const file = document.getElementById("foto").files[0];
+      if (!file) return alert("Selecione uma imagem!");
+
+      const storageRef = firebase.storage().ref("fotos/" + file.name);
+      await storageRef.put(file);
+      const url = await storageRef.getDownloadURL();
+
+      await firebase.firestore().collection("fotos").add({
+        url,
+        data: new Date(),
+      });
+
+      msg.innerText = "? Foto enviada com sucesso!";
+    });
+  </script>
+</body>
+</html>
